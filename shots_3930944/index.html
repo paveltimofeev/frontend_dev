@@ -2,6 +2,7 @@
 
 <head>
 <title>Tickets and Activity - Server monitoring dashboard</title>
+<link href="https://fonts.googleapis.com/css?family=Dosis|Encode+Sans+Condensed|Nunito|PT+Sans|Yantramanav" rel="stylesheet">
 </head>
 
 <style>
@@ -10,11 +11,17 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
+  
+/*
+font-family: 'Nunito', sans-serif;
+font-family: 'Encode Sans Condensed', sans-serif;
+font-family: 'Dosis', sans-serif;
+font-family: 'Yantramanav', sans-serif;
+*/
+  font-family: 'PT Sans', sans-serif;
+
 }
 
-div {
-  border: 1px dashed lightblue;
-}
 
 .container {
   display: flex;
@@ -23,9 +30,10 @@ div {
   margin: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid red;
+  background-color: #222931;
 }
 
+/* MAIN CONTAINERS */
 
 .navbar {
   display: flex;
@@ -35,11 +43,13 @@ div {
   
   width: 50px;
   height: 100%;
-  border: 2px solid blue;
+  color: white;
+  background-color: #222931;
 }
 .content {
   width: 100%;
   height: 100%;
+  background-color: #181d23;
 }
 .header {
   display: flex;
@@ -48,16 +58,67 @@ div {
   
   width: 100%;
   height: 50px;
-  border: 2px solid blue;
+  color: white;
 }
-
 .widgets {
   display: flex;
   flex-wrap: wrap;
-
-  border: 2px solid blue;  
 }
 
+/* END MAIN CONTAINERS */
+
+
+.content-space {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.top-space {
+  padding-top: 10px;
+}
+
+
+.navbar-btn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  cursor: pointer;
+}
+.navbar-btn:hover {
+  background-color: #2d343c;
+}
+.navbar-btn__active {
+   color: #f9cc37;
+   background-color: #2d343c;
+   border-left: 2px solid #f9cc37;
+   width: 48px;
+}
+.navbar-btn__list__align {
+  padding-left: 0;
+}
+
+
+.header-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  list-style: none;
+  border-radius: 5px;
+  background-color: #222931;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.header-btn:hover {
+  background-color: #2d343c;
+}
+.header-btn__space {
+  margin-left: 10px;
+}
 
 .header__title {}
 .header__actions-list {
@@ -68,7 +129,35 @@ div {
 .widgets__item { 
   width: 150px;
   height: 150px;
+  border-radius: 3px;
+  background-color: #222931;
 }
+
+.widgets__item__double { 
+  height: 310px;
+  width: 630px;
+  border-radius: 3px;
+  background-color: #222931;
+}
+
+.widgets__item__space {
+  margin: 5px;
+}
+
+/*DEBUG*
+
+div {
+  border: 1px dashed lightblue;
+}
+
+.container {
+  border: 2px solid red;
+}
+.widgets, .header, .navbar {
+  border: 1px solid lightblue;  
+}
+
+/* END DEBUG*/
 
 
 </style>
@@ -79,31 +168,39 @@ div {
 
 
     <div class="navbar">
-      <div>Expander</div>
+      <div class="navbar-btn">=</div>
       <div>
-        <ul>
-          <li>1</li><li>2</li><li>3</li><li>4</li>
+        <ul class="navbar-btn__list__align">
+          <li class="navbar-btn">1</li>
+          <li class="navbar-btn navbar-btn__active">2</li>
+          <li class="navbar-btn">3</li>
+          <li class="navbar-btn">4</li>
         </ul>
       </div>
-      <div>logout</div>
+      <div class="navbar-btn"><a hrev="#">L</a></div>
     </div>
     
-    <div class="content">
+    <div class="content content-space">
     
       <div class="header">
         <div class="header__title">Monitoring</div>
         <div>
           <ul class="header__actions-list">
-            <li>Add</li><li>Settings</li><li>Refresh</li><li>Search</li><li>More...</li>
+            <li class="header-btn header-btn__space">A</li>
+            <li class="header-btn header-btn__space">S</li>
+            <li class="header-btn header-btn__space">R</li>
+            <li class="header-btn header-btn__space">S</li>
+            <li class="header-btn header-btn__space">...</li>
           </ul>
         </div>
       </div>
       
-      <div class="widgets">
-        <div class="widgets__item">w1</div><div class="widgets__item">w2</div>
-        <div class="widgets__item">w3</div><div class="widgets__item">w4</div>
-        <div class="widgets__item">w5</div>
-        <div class="widgets__item">w6</div><div class="widgets__item">w7</div>
+      <div class="widgets top-space">
+        <div class="widgets__item widgets__item__space"></div><div class="widgets__item widgets__item__space"></div>
+        <div class="widgets__item widgets__item__space"></div><div class="widgets__item widgets__item__space"></div>
+        <div class="widgets__item__double widgets__item__space"></div>
+        <div class="widgets__item__double widgets__item__space"></div>
+        <div class="widgets__item__double widgets__item__space"></div>
       </div>
       
     </div>
