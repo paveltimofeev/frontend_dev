@@ -3,6 +3,7 @@
 <head>
 <title>Tickets and Activity - Server monitoring dashboard</title>
 <link href="https://fonts.googleapis.com/css?family=Dosis|Encode+Sans+Condensed|Nunito|PT+Sans|Yantramanav" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 
 <style>
@@ -38,7 +39,6 @@ font-family: 'Yantramanav', sans-serif;
 .navbar {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   
   width: 50px;
@@ -87,6 +87,7 @@ font-family: 'Yantramanav', sans-serif;
   cursor: pointer;
 }
 .navbar-btn:hover {
+  color: #f9cc37;
   background-color: #2d343c;
 }
 .navbar-btn__active {
@@ -168,16 +169,16 @@ div {
 
 
     <div class="navbar">
-      <div class="navbar-btn">=</div>
+      <div class="navbar-btn"><i class="fas fa-bars"></i></div>
       <div>
         <ul class="navbar-btn__list__align">
-          <li class="navbar-btn">1</li>
-          <li class="navbar-btn navbar-btn__active">2</li>
-          <li class="navbar-btn">3</li>
-          <li class="navbar-btn">4</li>
+          <li class="navbar-btn"><i class="fas fa-address-card"></i></li>
+          <li class="navbar-btn navbar-btn__active"><i class="fas fa-chart-pie"></i></li>
+          <li class="navbar-btn"><i class="fas fa-hdd"></i></li>
+          <li class="navbar-btn"><i class="fas fa-globe"></i></li>
         </ul>
       </div>
-      <div class="navbar-btn"><a hrev="#">L</a></div>
+      <div class="navbar-btn"><a hrev="#"><i class="fas fa-power-off"></i></a></div>
     </div>
     
     <div class="content content-space">
