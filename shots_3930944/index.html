@@ -115,15 +115,46 @@ font-family: 'Yantramanav', sans-serif;
 }
 
 .widget__title { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
   color: #fff;
   width: 100%;
   text-transform: uppercase;
   font-size: 14px;
 }
+.widget__title-buttons-group {
+  
+  border: 1px solid #181d23;
+  border-radius: 3px;
+}
+.widget__title-button {
+
+  background-color: #222931;
+  text-transform: none;
+  font-size: 12px;
+  cursor: pointer;
+  
+  padding: 0px 6px 0px 6px;
+}
+.widget__title-button:hover {
+
+  background-color: #2d343c;
+}
+.widget__title-button--active {
+
+  color: #f9cc37;
+  background-color: #2d343c;
+}
+.widget__title-button--active:hover {
+
+  background-color: #222931;
+}
 .widget__content { 
   width: 100%;
   height: 100%;
-  border: 1px dashed #aaa;
+  border: 1px dashed #aaaaaa1a;
 }
 .widget__desc {
   display: flex;
@@ -303,7 +334,12 @@ div {
         </div>
         
         <div class="widget widget--double-wide widget-space">
-           <div class="widget__title">Tickets status</div>
+           <div class="widget__title">
+             <span>Tickets status</span>
+             <span class="widget__title-buttons-group">
+              <span class="widget__title-button widget__title-button--active">Priority</span><span class="widget__title-button">Latest</span>
+             </span>
+           </div>
             <div class="widget__content"></div>
         </div>
         
