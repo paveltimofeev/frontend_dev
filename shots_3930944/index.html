@@ -68,6 +68,8 @@ font-family: 'Yantramanav', sans-serif;
 /* END MAIN CONTAINERS */
 
 
+/* MIXES */
+
 .content-space {
   padding-left: 25px;
   padding-right: 25px;
@@ -75,9 +77,76 @@ font-family: 'Yantramanav', sans-serif;
 .top-space {
   padding-top: 10px;
 }
+.widget-space {
+  margin: 5px;
+}
+
+/* END MIXES */
+
+.widget { 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+    
+  padding: 15px;
+  border-radius: 3px;
+  background-color: #222931;
+}
+.widgets-group {
+
+    display: flex;
+    flex-flow: row wrap;
+    width: 160px;
+}
+.widget--small {
+
+  width: 120px;
+  height: 120px;
+}
+.widget--double {
+
+  height: 280px;
+  width: 280px;
+}
+.widget--double-wide {
+
+  height: 280px;
+  width: 610px;
+}
+
+.widget__title { 
+  color: #fff;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.widget__content { 
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #aaa;
+}
+.widget__desc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.widget__desc-label { 
+  font-size: 10px;
+  color: #aaa;
+}
+.widget__desc-value { 
+  font-size: 20px;
+  color: #fff;
+}
 
 
-.navbar-btn {
+
+.navbar__buttons {
+
+  padding-left: 0;
+}
+.navbar__button {
+
   width: 50px;
   height: 50px;
   display: flex;
@@ -86,18 +155,17 @@ font-family: 'Yantramanav', sans-serif;
   list-style: none;
   cursor: pointer;
 }
-.navbar-btn:hover {
+.navbar__button:hover {
+
   color: #f9cc37;
   background-color: #2d343c;
 }
-.navbar-btn__active {
+.navbar__button--active {
+
    color: #f9cc37;
    background-color: #2d343c;
    border-left: 2px solid #f9cc37;
    width: 48px;
-}
-.navbar-btn__list__align {
-  padding-left: 0;
 }
 
 
@@ -127,23 +195,6 @@ font-family: 'Yantramanav', sans-serif;
 }
 
 
-.widgets__item { 
-  width: 150px;
-  height: 150px;
-  border-radius: 3px;
-  background-color: #222931;
-}
-
-.widgets__item__double { 
-  height: 310px;
-  width: 630px;
-  border-radius: 3px;
-  background-color: #222931;
-}
-
-.widgets__item__space {
-  margin: 5px;
-}
 
 /*DEBUG*
 
@@ -169,18 +220,18 @@ div {
 
 
     <div class="navbar">
-      <div class="navbar-btn"><i class="fas fa-bars"></i></div>
+      <div class="navbar__button"><i class="fas fa-bars"></i></div>
       
       <nav>
-        <ul class="navbar-btn__list__align">
-          <li class="navbar-btn"><i class="fas fa-address-card"></i></li>
-          <li class="navbar-btn navbar-btn__active"><i class="fas fa-chart-pie"></i></li>
-          <li class="navbar-btn"><i class="fas fa-hdd"></i></li>
-          <li class="navbar-btn"><i class="fas fa-globe"></i></li>
+        <ul class="navbar__buttons">
+          <li class="navbar__button"><i class="fas fa-address-card"></i></li>
+          <li class="navbar__button navbar__button--active"><i class="fas fa-chart-pie"></i></li>
+          <li class="navbar__button"><i class="fas fa-hdd"></i></li>
+          <li class="navbar__button"><i class="fas fa-globe"></i></li>
         </ul>
       </nav>
       
-      <div class="navbar-btn"><a hrev="#"><i class="fas fa-power-off"></i></a></div>
+      <div class="navbar__button"><a hrev="#"><i class="fas fa-power-off"></i></a></div>
     </div>
     
     <div class="content content-space">
@@ -199,11 +250,68 @@ div {
       </div>
       
       <div class="widgets top-space">
-        <div class="widgets__item widgets__item__space"></div><div class="widgets__item widgets__item__space"></div>
-        <div class="widgets__item widgets__item__space"></div><div class="widgets__item widgets__item__space"></div>
-        <div class="widgets__item__double widgets__item__space"></div>
-        <div class="widgets__item__double widgets__item__space"></div>
-        <div class="widgets__item__double widgets__item__space"></div>
+        
+        <div class="widgets-group">
+        
+          <div class="widget widget--small widget-space">
+            <div class="widget__title">Issues</div>
+            <div class="widget__content"></div>
+            <div class="widget__desc">
+              <span class="widget__desc-label">Today</span>
+              <span class="widget__desc-value">2</span>
+            </div>
+          </div>
+          
+          <div class="widget widget--small widget-space">
+            <div class="widget__title">Checks</div>
+            <div class="widget__content"></div>
+            <div class="widget__desc">
+              <span class="widget__desc-label">Running</span>
+              <span class="widget__desc-value">6/94</span>
+            </div>
+          </div>
+        
+        </div>
+
+        <div class="widgets-group">
+                        
+          <div class="widget widget--small widget-space">
+            <div class="widget__title">Applications</div>
+            <div class="widget__content"></div>
+            <div class="widget__desc">
+              <span class="widget__desc-label">CPU load</span>
+              <span class="widget__desc-value">5</span>
+            </div>
+          </div>
+          
+          <div class="widget widget--small widget-space">
+            <div class="widget__title">Databases</div>
+            <div class="widget__content"></div>
+            <div class="widget__desc">
+              <span class="widget__desc-label">Disk usage</span>
+              <span class="widget__desc-value">14</span>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        <div class="widget widget--double-wide widget-space">
+            <div class="widget__title">Server activity</div>
+            <div class="widget__content"></div>
+        </div>
+        
+        <div class="widget widget--double-wide widget-space">
+           <div class="widget__title">Tickets status</div>
+            <div class="widget__content"></div>
+        </div>
+        
+        <div class="widget widget--double widget-space">
+           <div class="widget__title">Disk space usage</div>
+           <div class="widget__content"></div>
+        </div>
+        
       </div>
       
     </div>
