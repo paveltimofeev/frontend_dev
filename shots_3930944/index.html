@@ -1,360 +1,127 @@
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tickets and Activity - Server monitoring dashboard</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Encode+Sans+Condensed|Nunito|PT+Sans|Yantramanav" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
 
-<head>
-<title>Tickets and Activity - Server monitoring dashboard</title>
-<link href="https://fonts.googleapis.com/css?family=Dosis|Encode+Sans+Condensed|Nunito|PT+Sans|Yantramanav" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-</head>
+  <body>
 
-<style>
+    <div class="container">
 
-body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  
-/*
-font-family: 'Nunito', sans-serif;
-font-family: 'Encode Sans Condensed', sans-serif;
-font-family: 'Dosis', sans-serif;
-font-family: 'Yantramanav', sans-serif;
-*/
-  font-family: 'PT Sans', sans-serif;
-
-}
-
-
-.container {
-  display: flex;
-
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #222931;
-}
-
-/* MAIN CONTAINERS */
-
-.navbar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  
-  width: 50px;
-  height: 100%;
-  color: white;
-  background-color: #222931;
-}
-.content {
-  width: 100%;
-  height: 100%;
-  background-color: #181d23;
-}
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  width: 100%;
-  height: 50px;
-  color: white;
-}
-.widgets {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-/* END MAIN CONTAINERS */
-
-
-/* MIXES */
-
-.content-space {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-.top-space {
-  padding-top: 10px;
-}
-.widget-space {
-  margin: 5px;
-}
-
-/* END MIXES */
-
-.widget { 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-    
-  padding: 15px;
-  border-radius: 3px;
-  background-color: #222931;
-}
-.widgets-group {
-
-    display: flex;
-    flex-flow: row wrap;
-    width: 160px;
-}
-.widget--small {
-
-  width: 120px;
-  height: 120px;
-}
-.widget--double {
-
-  height: 280px;
-  width: 280px;
-}
-.widget--double-wide {
-
-  height: 280px;
-  width: 610px;
-}
-
-.widget__title { 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  
-  color: #fff;
-  width: 100%;
-  text-transform: uppercase;
-  font-size: 14px;
-}
-.widget__title-buttons-group {
-  
-  border: 1px solid #181d23;
-  border-radius: 3px;
-}
-.widget__title-button {
-
-  background-color: #222931;
-  text-transform: none;
-  font-size: 12px;
-  cursor: pointer;
-  
-  padding: 0px 6px 0px 6px;
-}
-.widget__title-button:hover {
-
-  background-color: #2d343c;
-}
-.widget__title-button--active {
-
-  color: #f9cc37;
-  background-color: #2d343c;
-}
-.widget__title-button--active:hover {
-
-  background-color: #222931;
-}
-.widget__content { 
-  width: 100%;
-  height: 100%;
-  border: 1px dashed #aaaaaa1a;
-}
-.widget__desc {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.widget__desc-label { 
-  font-size: 10px;
-  color: #aaa;
-}
-.widget__desc-value { 
-  font-size: 20px;
-  color: #fff;
-}
-
-
-
-.navbar__buttons {
-
-  padding-left: 0;
-}
-.navbar__button {
-
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  cursor: pointer;
-}
-.navbar__button:hover {
-
-  color: #f9cc37;
-  background-color: #2d343c;
-}
-.navbar__button--active {
-
-   color: #f9cc37;
-   background-color: #2d343c;
-   border-left: 2px solid #f9cc37;
-   width: 48px;
-}
-
-
-.header-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 36px;
-  height: 36px;
-  list-style: none;
-  border-radius: 5px;
-  background-color: #222931;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-}
-.header-btn:hover {
-  background-color: #2d343c;
-}
-.header-btn__space {
-  margin-left: 10px;
-}
-
-.header__title {}
-.header__actions-list {
-  display: flex;
-}
-
-
-
-/*DEBUG*
-
-div {
-  border: 1px dashed lightblue;
-}
-
-.container {
-  border: 2px solid red;
-}
-.widgets, .header, .navbar {
-  border: 1px solid lightblue;  
-}
-
-/* END DEBUG*/
-
-
-</style>
-
-<body>
-
-  <div class="container">
-
-
-    <div class="navbar">
-      <div class="navbar__button"><i class="fas fa-bars"></i></div>
-      
-      <nav>
-        <ul class="navbar__buttons">
-          <li class="navbar__button"><i class="fas fa-address-card"></i></li>
-          <li class="navbar__button navbar__button--active"><i class="fas fa-chart-pie"></i></li>
-          <li class="navbar__button"><i class="fas fa-hdd"></i></li>
-          <li class="navbar__button"><i class="fas fa-globe"></i></li>
-        </ul>
-      </nav>
-      
-      <div class="navbar__button"><a hrev="#"><i class="fas fa-power-off"></i></a></div>
-    </div>
-    
-    <div class="content content-space">
-    
-      <div class="header">
-        <div class="header__title">Monitoring</div>
-        <div>
-          <ul class="header__actions-list">
-            <li class="header-btn header-btn__space"><i class="fas fa-plus"></i></li>
-            <li class="header-btn header-btn__space"><i class="fas fa-cog"></i></li>
-            <li class="header-btn header-btn__space"><i class="fas fa-sync-alt"></i></li>
-            <li class="header-btn header-btn__space"><i class="fas fa-search"></i></li>
-            <li class="header-btn header-btn__space"><i class="fas fa-ellipsis-v"></i></li>
+      <div class="navbar">
+        <div class="navbar__button"><i class="fas fa-bars"></i></div>
+        <nav>
+          <ul class="navbar__buttons">
+            <li class="navbar__button"><i class="fas fa-address-card"></i></li>
+            <li class="navbar__button navbar__button--active"><i class="fas fa-chart-pie"></i></li>
+            <li class="navbar__button"><i class="fas fa-hdd"></i></li>
+            <li class="navbar__button"><i class="fas fa-globe"></i></li>
           </ul>
-        </div>
+        </nav>
+        <div class="navbar__button"><a hrev="#"><i class="fas fa-power-off"></i></a></div>
       </div>
       
-      <div class="widgets top-space">
-        
-        <div class="widgets-group">
-        
-          <div class="widget widget--small widget-space">
-            <div class="widget__title">Issues</div>
-            <div class="widget__content"></div>
-            <div class="widget__desc">
-              <span class="widget__desc-label">Today</span>
-              <span class="widget__desc-value">2</span>
-            </div>
+      
+      <div class="content content-space">
+      
+        <div class="header">
+          <div class="header__title">Monitoring</div>
+          <div>
+            <ul class="header__actions-list">
+              <li class="header-btn header-btn__space"><i class="fas fa-plus"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-cog"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-sync-alt"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-search"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-ellipsis-v"></i></li>
+            </ul>
           </div>
-          
-          <div class="widget widget--small widget-space">
-            <div class="widget__title">Checks</div>
-            <div class="widget__content"></div>
-            <div class="widget__desc">
-              <span class="widget__desc-label">Running</span>
-              <span class="widget__desc-value">6/94</span>
-            </div>
-          </div>
-        
         </div>
+        
+        
+        <div class="widgets top-space">
+          
+          <div class="widgets-group">
+          
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Issues</div>
+              <div class="widget__content widget__content-chart"><canvas id="issues-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">Today</span>
+                <span class="widget__desc-value">2</span>
+              </div>
+            </div>
+            
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Checks</div>
+              <div class="widget__content widget__content-chart"><canvas id="checks-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">Running</span>
+                <span class="widget__desc-value">6/94</span>
+              </div>
+            </div>
+          
+          </div>
 
-        <div class="widgets-group">
-                        
-          <div class="widget widget--small widget-space">
-            <div class="widget__title">Applications</div>
-            <div class="widget__content"></div>
-            <div class="widget__desc">
-              <span class="widget__desc-label">CPU load</span>
-              <span class="widget__desc-value">5</span>
+          <div class="widgets-group">
+                          
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Applications</div>
+              <div class="widget__content widget__content-chart"><canvas id="applications-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">CPU load</span>
+                <span class="widget__desc-value">5</span>
+              </div>
             </div>
+            
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Databases</div>
+              <div class="widget__content widget__content-chart"><canvas id="databases-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">Disk usage</span>
+                <span class="widget__desc-value">14</span>
+              </div>
+            </div>
+            
           </div>
           
-          <div class="widget widget--small widget-space">
-            <div class="widget__title">Databases</div>
-            <div class="widget__content"></div>
-            <div class="widget__desc">
-              <span class="widget__desc-label">Disk usage</span>
-              <span class="widget__desc-value">14</span>
-            </div>
+          <div class="widget widget--double-wide widget-space">
+              <div class="widget__title">Server activity</div>
+              <div class="widget__content widget__content--empty">
+                
+                <canvas id="server-activity-chart"></canvas>
+                
+              </div>
+          </div>
+          
+          <div class="widget widget--double-wide widget-space">
+             <div class="widget__title">
+               <span>Tickets status</span>
+               <span class="widget__title-buttons-group">
+                <span class="widget__title-button widget__title-button--active">Priority</span><span class="widget__title-button">Latest</span>
+               </span>
+             </div>
+              <div class="widget__content widget__content--empty"></div>
+          </div>
+          
+          <div class="widget widget--double widget-space">
+             <div class="widget__title">Disk space usage</div>
+             <div class="widget__content widget__content--empty"></div>
           </div>
           
         </div>
         
-        
-        
-        <div class="widget widget--double-wide widget-space">
-            <div class="widget__title">Server activity</div>
-            <div class="widget__content"></div>
-        </div>
-        
-        <div class="widget widget--double-wide widget-space">
-           <div class="widget__title">
-             <span>Tickets status</span>
-             <span class="widget__title-buttons-group">
-              <span class="widget__title-button widget__title-button--active">Priority</span><span class="widget__title-button">Latest</span>
-             </span>
-           </div>
-            <div class="widget__content"></div>
-        </div>
-        
-        <div class="widget widget--double widget-space">
-           <div class="widget__title">Disk space usage</div>
-           <div class="widget__content"></div>
-        </div>
         
       </div>
-      
+
     </div>
 
-  </div>
-  </div>
 
-</body>
+    <script src="scripts/charts.js"></script>
 
+  </body>
 </html>
