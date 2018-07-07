@@ -96,9 +96,43 @@
           
           <div class="widget widget--double-wide widget-space">
               <div class="widget__title">Server activity</div>
-              <div class="widget__content widget__content--empty">
+              <div class="widget__content">
+
+                <div class="srv-activity">
+                  <div class="srv-activity_chart"><canvas id="server-activity-chart"></canvas></div>
+                  <div class="srv-activity_dashes">
+                    <div class="dash-chart">
+                      <div class="dash-chart_titles">
+                        <span>CPU</span><span class="dash-chart_titles--big">50%</span>
+                      </div>
+                      
+                      <div class="dash-chart_chart">
+                        <canvas id="server-dash_1"></canvas>
+                      </div>
+                      
+                    </div>
+                    <div class="dash-chart">
+                     <div class="dash-chart_titles">
+                        <span>Memory</span><span class="dash-chart_titles--big">25%</span>
+                      </div>
+                      
+                      <div class="dash-chart_chart">
+                        <canvas id="server-dash_2"></canvas>
+                      </div>
+                      </div>
+                    <div class="dash-chart">
+                     <div class="dash-chart_titles">
+                        <span>Download</span><span class="dash-chart_titles--big">75%</span>
+                      </div>
+                      
+                      <div class="dash-chart_chart">
+                        <canvas id="server-dash_3"></canvas>
+                      </div>
+                    </div>      
+                  </div>
+                </div>
                 
-                <canvas id="server-activity-chart"></canvas>
+                
                 
               </div>
           </div>
@@ -119,7 +153,6 @@
           </div>
           
         </div>
-        
         
       </div>
 

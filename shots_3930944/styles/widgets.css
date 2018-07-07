@@ -6,6 +6,10 @@
   padding: 15px;
   border-radius: 3px;
   background-color: #222931;
+  
+  /*
+  box-sizing: border-box;
+  */
 }
 
 .widgets-group {
