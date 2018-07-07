@@ -1,3 +1,4 @@
+@color_darkest: #181d23;
 @color_dark: #1f242a;
 @color_brightgray: #5f6061;
 @color_red: red;
@@ -12,6 +13,7 @@
     justify-content: space-between;
     
     color: white;
+    font-size: 12px;
     
     background-color: @color_dark;
     margin-bottom: 3px;
@@ -29,9 +31,10 @@
     }
     
     &__progressbar {
+      
       height: 3px;
       width: 100%;
-      border: 1px solid @color_brightgray;
+      background-color: @color_darkest;
       
       &-fill {
           
