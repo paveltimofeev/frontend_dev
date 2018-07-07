@@ -1,6 +1,7 @@
 @color_darkest: #181d23;
 @color_dark: #1f242a;
 @color_brightgray: #5f6061;
+@color_lightblue: #35a0f8;
 @color_red: red;
 @color_orange: orange;
 @color_green: green;
@@ -31,26 +32,18 @@
     }
     
     &__progressbar {
+
+      display: flex;
+      justify-content: flex-end;
       
-      height: 3px;
+      height: 4px;
       width: 100%;
-      background-color: @color_darkest;
+      background: linear-gradient( to right, @color_lightblue, yellow, red);
       
       &-fill {
-          
-          &--danger {
-            height: 100%;
-            background-color: @color_red;
-          }
-          
-          &--warn {
-            height: 100%;
-            background-color: @color_orange;
-          }
-          &--success {
-            height: 100%;
-            background-color: @color_green;
-          }  
+      
+        height: 100%;
+        background-color: @color_darkest;
       }
     }    
 }
