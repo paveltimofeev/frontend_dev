@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/widgets.css">
     <link rel="stylesheet" href="styles/srv-activity/srv-activity.less">
     <link rel="stylesheet" href="styles/disk-state/disk-state.less">
+    <link rel="stylesheet" href="styles/tickets-table/tickets-table.less">
 
     </head>
 
@@ -151,7 +152,93 @@
                 <span class="widget__title-button widget__title-button--active">Priority</span><span class="widget__title-button">Latest</span>
                </span>
              </div>
-              <div class="widget__content widget__content--empty"></div>
+              <div class="widget__content widget__content--empty__">
+                
+                <div>
+                
+                <div class="row">
+                <div class="row__icon"></div>
+                <div class="row__cells-header">
+                  <div class="row__cell--1x">#</div>
+                  <div class="row__cell--1x">Client</div>
+                  <div class="row__cell--2x tar">Issue description</div>
+                  <div class="row__cell--1x">Date</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--error"></div></div>
+                <div class="row__cells row__cells--highlighted">
+                  <div class="row__cell--1x">017892</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">Server shut down - brandwidth exceeded</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--error"></div></div>
+                <div class="row__cells row__cells--highlighted">
+                  <div class="row__cell--1x">017891</div>
+                  <div class="row__cell--1x">IndustryCorp.</div>
+                  <div class="row__cell--3x">Increased CPU load - 90% warning</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--warn"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017433</div>
+                  <div class="row__cell--1x">ACME inc</div>
+                  <div class="row__cell--3x">Website updates -supervision of deployment</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--warn"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017256</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">DNS issues</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--warn"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017221</div>
+                  <div class="row__cell--1x">Bad Co.</div>
+                  <div class="row__cell--3x">Weekly maintenance - database buckups</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017019</div>
+                  <div class="row__cell--1x">ACME inc</div>
+                  <div class="row__cell--3x">Renew SSL certiicate</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017008</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">Minor server uprades</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+
+                </div>
+                
+              </div>
           </div>
           
           <div class="widget widget--double widget-space">
