@@ -1,6 +1,6 @@
 .cache 
 .src_offline_cache
-dist
+dist/*.map
 node_modules
 
 npm-debug.log
