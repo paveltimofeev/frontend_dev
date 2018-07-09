@@ -1,0 +1,32 @@
+
+.header-btn {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  list-style: none;
+  border-radius: 5px;
+  background-color: #222931;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.header-btn:hover {
+  
+  background-color: #2d343c;
+}
+
+.header-btn__space {
+  
+  margin-left: 10px;
+}
+
+.header__title {}
+
+.header__actions-list {
+  
+  display: flex;
+}
