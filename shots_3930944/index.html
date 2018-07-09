@@ -1,0 +1,166 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tickets and Activity - Server monitoring dashboard</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Encode+Sans+Condensed|Nunito|PT+Sans|Yantramanav" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/widgets.css">
+
+    </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="navbar">
+        <div class="navbar__button"><i class="fas fa-bars"></i></div>
+        <nav>
+          <ul class="navbar__buttons">
+            <li class="navbar__button"><i class="fas fa-address-card"></i></li>
+            <li class="navbar__button navbar__button--active"><i class="fas fa-chart-pie"></i></li>
+            <li class="navbar__button"><i class="fas fa-hdd"></i></li>
+            <li class="navbar__button"><i class="fas fa-globe"></i></li>
+          </ul>
+        </nav>
+        <div class="navbar__button"><a hrev="#"><i class="fas fa-power-off"></i></a></div>
+      </div>
+      
+      
+      <div class="content content-space">
+      
+        <div class="header">
+          <div class="header__title">Monitoring</div>
+          <div>
+            <ul class="header__actions-list">
+              <li class="header-btn header-btn__space"><i class="fas fa-plus"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-cog"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-sync-alt"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-search"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-ellipsis-v"></i></li>
+            </ul>
+          </div>
+        </div>
+        
+        
+        <div class="widgets top-space">
+          
+          <div class="widgets-group">
+          
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Issues</div>
+              <div class="widget__content widget__content-chart"><canvas id="issues-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">Today</span>
+                <span class="widget__desc-value">2</span>
+              </div>
+            </div>
+            
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Checks</div>
+              <div class="widget__content widget__content-chart"><canvas id="checks-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">Running</span>
+                <span class="widget__desc-value">6/94</span>
+              </div>
+            </div>
+          
+          </div>
+
+          <div class="widgets-group">
+                          
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Applications</div>
+              <div class="widget__content widget__content-chart"><canvas id="applications-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">CPU load</span>
+                <span class="widget__desc-value">5</span>
+              </div>
+            </div>
+            
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Databases</div>
+              <div class="widget__content widget__content-chart"><canvas id="databases-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">Disk usage</span>
+                <span class="widget__desc-value">14</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="widget widget--double-wide widget-space">
+              <div class="widget__title">Server activity</div>
+              <div class="widget__content">
+
+                <div class="srv-activity">
+                  <div class="srv-activity_chart"><canvas id="server-activity-chart"></canvas></div>
+                  <div class="srv-activity_dashes">
+                    <div class="dash-chart">
+                      <div class="dash-chart_titles">
+                        <span>CPU</span><span class="dash-chart_titles--big">50%</span>
+                      </div>
+                      
+                      <div class="dash-chart_chart">
+                        <canvas id="server-dash_1"></canvas>
+                      </div>
+                      
+                    </div>
+                    <div class="dash-chart">
+                     <div class="dash-chart_titles">
+                        <span>Memory</span><span class="dash-chart_titles--big">25%</span>
+                      </div>
+                      
+                      <div class="dash-chart_chart">
+                        <canvas id="server-dash_2"></canvas>
+                      </div>
+                      </div>
+                    <div class="dash-chart">
+                     <div class="dash-chart_titles">
+                        <span>Download</span><span class="dash-chart_titles--big">75%</span>
+                      </div>
+                      
+                      <div class="dash-chart_chart">
+                        <canvas id="server-dash_3"></canvas>
+                      </div>
+                    </div>      
+                  </div>
+                </div>
+                
+                
+                
+              </div>
+          </div>
+          
+          <div class="widget widget--double-wide widget-space">
+             <div class="widget__title">
+               <span>Tickets status</span>
+               <span class="widget__title-buttons-group">
+                <span class="widget__title-button widget__title-button--active">Priority</span><span class="widget__title-button">Latest</span>
+               </span>
+             </div>
+              <div class="widget__content widget__content--empty"></div>
+          </div>
+          
+          <div class="widget widget--double widget-space">
+             <div class="widget__title">Disk space usage</div>
+             <div class="widget__content widget__content--empty"></div>
+          </div>
+          
+        </div>
+        
+      </div>
+
+    </div>
+
+
+    <script src="scripts/charts.js"></script>
+
+  </body>
+</html>
