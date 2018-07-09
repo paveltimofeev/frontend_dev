@@ -1,0 +1,49 @@
+@color_darkest: #181d23;
+@color_dark: #1f242a;
+@color_brightgray: #5f6061;
+@color_lightblue: #35a0f8;
+@color_red: red;
+@color_orange: orange;
+@color_green: green;
+
+
+.disk-state {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    color: white;
+    font-size: 12px;
+    
+    background-color: @color_dark;
+    margin-bottom: 3px;
+    border-radius: 4px;
+    
+    &__name {
+  
+      margin: 15px;
+      min-width: 50px;
+    }
+    
+    &__value {
+      
+      margin: 15px;
+    }
+    
+    &__progressbar {
+
+      display: flex;
+      justify-content: flex-end;
+      
+      height: 4px;
+      width: 100%;
+      background: linear-gradient( to right, @color_lightblue, yellow, red);
+      
+      &-fill {
+      
+        height: 100%;
+        background-color: @color_darkest;
+      }
+    }    
+}

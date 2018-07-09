@@ -87,6 +87,11 @@
   margin: 14px 0 5px 0;
 }
 
+.widget__content--vertical {
+    display: flex;
+    flex-flow: column;
+}
+
 .widget__content-chart { 
 
   display: flex;
