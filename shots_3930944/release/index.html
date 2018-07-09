@@ -1,1 +1,287 @@
-<html> <head> <meta charset="utf-8"> <title>Tickets and Activity - Server monitoring dashboard</title> <link href="https://fonts.googleapis.com/css?family=Dosis|Encode+Sans+Condensed|Nunito|PT+Sans|Yantramanav" rel="stylesheet"> <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"> <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> <script src="https://momentjs.com/downloads/moment.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script> <link rel="stylesheet" href="./main.2a625075.css"> <link rel="stylesheet" href="/navbar.54c3026d.css"> <link rel="stylesheet" href="/header.be57776d.css"> <link rel="stylesheet" href="/widgets.6b10d295.css"> <link rel="stylesheet" href="/srv-activity.d96e6c5a.css"> <link rel="stylesheet" href="/disk-state.4e7ad96c.css"> <link rel="stylesheet" href="/tickets-table.15994d18.css"> </head> <body> <div class="container"> <div class="navbar"> <div class="navbar__button" onclick="navbar_expand(this)"><i class="fas fa-bars"></i></div> <nav> <ul class="navbar__buttons"> <li class="navbar__button"><i class="fas fa-address-card"></i></li> <li class="navbar__button navbar__button--active"><i class="fas fa-chart-pie"></i></li> <li class="navbar__button"><i class="fas fa-hdd"></i></li> <li class="navbar__button"><i class="fas fa-globe"></i></li> </ul> </nav> <div class="navbar__button"><a hrev="#"><i class="fas fa-power-off"></i></a></div> </div> <div class="content content-space"> <div class="header"> <div class="header__title">Monitoring</div> <div> <ul class="header__actions-list"> <li class="header-btn header-btn__space"><i class="fas fa-plus"></i></li> <li class="header-btn header-btn__space"><i class="fas fa-cog"></i></li> <li class="header-btn header-btn__space"><i class="fas fa-sync-alt"></i></li> <li class="header-btn header-btn__space"><i class="fas fa-search"></i></li> <li class="header-btn header-btn__space"><i class="fas fa-ellipsis-v"></i></li> </ul> </div> </div> <div class="widgets top-space"> <div class="widgets-group"> <div class="widget widget--small widget-space"> <div class="widget__title">Issues</div> <div class="widget__content widget__content-chart"><canvas id="issues-chart"></canvas></div> <div class="widget__desc"> <span class="widget__desc-label">Today</span> <span class="widget__desc-value">2</span> </div> </div> <div class="widget widget--small widget-space"> <div class="widget__title">Checks</div> <div class="widget__content widget__content-chart"><canvas id="checks-chart"></canvas></div> <div class="widget__desc"> <span class="widget__desc-label">Running</span> <span class="widget__desc-value">6/94</span> </div> </div> </div> <div class="widgets-group"> <div class="widget widget--small widget-space"> <div class="widget__title">Applications</div> <div class="widget__content widget__content-chart"><canvas id="applications-chart"></canvas></div> <div class="widget__desc"> <span class="widget__desc-label">CPU load</span> <span class="widget__desc-value">5</span> </div> </div> <div class="widget widget--small widget-space"> <div class="widget__title">Databases</div> <div class="widget__content widget__content-chart"><canvas id="databases-chart"></canvas></div> <div class="widget__desc"> <span class="widget__desc-label">Disk usage</span> <span class="widget__desc-value">14</span> </div> </div> </div> <div class="widget widget--double-wide widget-space"> <div class="widget__title">Server activity</div> <div class="widget__content"> <div class="srv-activity"> <div class="srv-activity_chart"> <canvas id="server-activity-chart"></canvas> </div> <div class="srv-activity_dashes"> <div class="dash-chart"> <div class="dash-chart_titles"> <span>CPU</span><span class="dash-chart_titles--big">50%</span> </div> <div class="dash-chart_chart"> <canvas id="server-dash_1"></canvas> </div> </div> <div class="dash-chart"> <div class="dash-chart_titles"> <span>Memory</span><span class="dash-chart_titles--big">25%</span> </div> <div class="dash-chart_chart"> <canvas id="server-dash_2"></canvas> </div> </div> <div class="dash-chart"> <div class="dash-chart_titles"> <span>Download</span><span class="dash-chart_titles--big">75%</span> </div> <div class="dash-chart_chart"> <canvas id="server-dash_3"></canvas> </div> </div> </div> </div> </div> </div> <div class="widget widget--double-wide widget-space"> <div class="widget__title"> <span>Tickets status</span> <span class="widget__title-buttons-group"> <span class="widget__title-button widget__title-button--active">Priority</span><span class="widget__title-button">Latest</span> </span> </div> <div class="widget__content"> <div class="rows-container"> <div class="row"> <div class="row__icon"></div> <div class="row__cells-header"> <div class="row__cell--1x">#</div> <div class="row__cell--1x">Client</div> <div class="row__cell--2x tar">Issue description</div> <div class="row__cell--1x">Date</div> </div> </div> <div class="row"> <div class="row__icon"><div class="tickets-table__icon tickets-table--error"></div></div> <div class="row__cells row__cells--highlighted"> <div class="row__cell--1x">017892</div> <div class="row__cell--1x">Company Ltd.</div> <div class="row__cell--3x">Server shut down - brandwidth exceeded</div> <div class="row__cell--2x tar">07/11/2017 @ 12:37</div> </div> </div> <div class="row"> <div class="row__icon"><div class="tickets-table__icon tickets-table--error"></div></div> <div class="row__cells row__cells--highlighted"> <div class="row__cell--1x">017891</div> <div class="row__cell--1x">IndustryCorp.</div> <div class="row__cell--3x">Increased CPU load - 90% warning</div> <div class="row__cell--2x tar">07/11/2017 @ 12:37</div> </div> </div> <div class="row"> <div class="row__icon"><div class="tickets-table__icon tickets-table--warn"></div></div> <div class="row__cells"> <div class="row__cell--1x">017433</div> <div class="row__cell--1x">ACME inc</div> <div class="row__cell--3x">Website updates -supervision of deployment</div> <div class="row__cell--2x tar">07/11/2017 @ 12:37</div> </div> </div> <div class="row"> <div class="row__icon"><div class="tickets-table__icon tickets-table--warn"></div></div> <div class="row__cells"> <div class="row__cell--1x">017256</div> <div class="row__cell--1x">Company Ltd.</div> <div class="row__cell--3x">DNS issues</div> <div class="row__cell--2x tar">07/11/2017 @ 12:37</div> </div> </div> <div class="row"> <div class="row__icon"><div class="tickets-table__icon tickets-table--warn"></div></div> <div class="row__cells"> <div class="row__cell--1x">017221</div> <div class="row__cell--1x">Bad Co.</div> <div class="row__cell--3x">Weekly maintenance - database buckups</div> <div class="row__cell--2x tar">07/11/2017 @ 12:37</div> </div> </div> <div class="row"> <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div> <div class="row__cells"> <div class="row__cell--1x">017019</div> <div class="row__cell--1x">ACME inc</div> <div class="row__cell--3x">Renew SSL certiicate</div> <div class="row__cell--2x tar">07/11/2017 @ 12:37</div> </div> </div> <div class="row"> <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div> <div class="row__cells"> <div class="row__cell--1x">017008</div> <div class="row__cell--1x">Company Ltd.</div> <div class="row__cell--3x">Minor server uprades</div> <div class="row__cell--2x tar">07/11/2017 @ 12:37</div> </div> </div> <div class="row"> <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div> <div class="row__cells"> <div class="row__cell--1x">017008</div> <div class="row__cell--1x">Company Ltd.</div> <div class="row__cell--3x">Minor server uprades</div> <div class="row__cell--2x tar">07/11/2017 @ 12:37</div> </div> </div> <div class="row"> <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div> <div class="row__cells"> <div class="row__cell--1x">017008</div> <div class="row__cell--1x">Company Ltd.</div> <div class="row__cell--3x">Minor server uprades</div> <div class="row__cell--2x tar">07/11/2017 @ 12:37</div> </div> </div> </div> </div> </div> <div class="widget widget--double widget-space"> <div class="widget__title">Disk space usage</div> <div class="widget__content widget__content--vertical"> <div class="disk-state"><span class="disk-state__name">SSD 01</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width:9%"></div></div><span class="disk-state__value">97%</span></div> <div class="disk-state"><span class="disk-state__name">SSD 02</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width:11%"></div></div><span class="disk-state__value">89%</span></div> <div class="disk-state"><span class="disk-state__name">SSD 03</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width:25%"></div></div><span class="disk-state__value">75%</span></div> <div class="disk-state"><span class="disk-state__name">SSD 04</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width:69%"></div></div><span class="disk-state__value">41%</span></div> <div class="disk-state"><span class="disk-state__name">SSD 05</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width:56%"></div></div><span class="disk-state__value">34%</span></div> <div class="disk-state"><span class="disk-state__name">SSD 06</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width:76%"></div></div><span class="disk-state__value">24%</span></div> <div class="disk-state"><span class="disk-state__name">SSD 07</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width:88%"></div></div><span class="disk-state__value">12%</span></div> <div class="disk-state"><span class="disk-state__name">SSD 08</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width:89%"></div></div><span class="disk-state__value">11%</span></div> </div> </div> </div> </div> </div> <script src="/charts.7aefe7dd.js"></script> <script src="/navbar.6ead21b6.js"></script> </body> </html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tickets and Activity - Server monitoring dashboard</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Encode+Sans+Condensed|Nunito|PT+Sans|Yantramanav" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+    <link rel="stylesheet" href="./main.8c0ff4c8.css">
+    
+    </head>
+
+  <body>
+
+    <div id="app" class="container">
+
+      <div class="navbar">
+        <div class="navbar__button" onclick="navbar_expand( this )"><i class="fas fa-bars"></i></div>
+        <nav>
+          <ul class="navbar__buttons">
+            <li class="navbar__button"><i class="fas fa-address-card"></i></li>
+            <li class="navbar__button navbar__button--active"><i class="fas fa-chart-pie"></i></li>
+            <li class="navbar__button"><i class="fas fa-hdd"></i></li>
+            <li class="navbar__button"><i class="fas fa-globe"></i></li>
+          </ul>
+        </nav>
+        <div class="navbar__button"><a hrev="#"><i class="fas fa-power-off"></i></a></div>
+      </div>
+      
+      
+      <div class="content content-space">
+      
+        <div class="header">
+          <div class="header__title">Monitoring</div>
+          <div>
+            <ul class="header__actions-list">
+              <li class="header-btn header-btn__space"><i class="fas fa-plus"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-cog"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-sync-alt"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-search"></i></li>
+              <li class="header-btn header-btn__space"><i class="fas fa-ellipsis-v"></i></li>
+            </ul>
+          </div>
+        </div>
+        
+        
+        <div class="widgets top-space">
+          
+          <div class="widgets-group">
+          
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Issues</div>
+              <div class="widget__content widget__content-chart"><canvas id="issues-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">Today</span>
+                <span class="widget__desc-value">2</span>
+              </div>
+            </div>
+            
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Checks</div>
+              <div class="widget__content widget__content-chart"><canvas id="checks-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">Running</span>
+                <span class="widget__desc-value">6/94</span>
+              </div>
+            </div>
+          
+          </div>
+
+          <div class="widgets-group">
+                          
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Applications</div>
+              <div class="widget__content widget__content-chart"><canvas id="applications-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">CPU load</span>
+                <span class="widget__desc-value">5</span>
+              </div>
+            </div>
+            
+            <div class="widget widget--small widget-space">
+              <div class="widget__title">Databases</div>
+              <div class="widget__content widget__content-chart"><canvas id="databases-chart"></canvas></div>
+              <div class="widget__desc">
+                <span class="widget__desc-label">Disk usage</span>
+                <span class="widget__desc-value">14</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="widget widget--double-wide widget-space">
+              <div class="widget__title">Server activity</div>
+              <div class="widget__content">
+
+                <div class="srv-activity">
+                  
+                  <div class="srv-activity_chart">
+                    <canvas id="server-activity-chart"></canvas>
+                  </div>
+                  
+                  <div class="srv-activity_dashes">
+                    <div class="dash-chart">
+                      <div class="dash-chart_titles">
+                        <span>CPU</span><span class="dash-chart_titles--big">50%</span>
+                      </div>
+                      
+                      <div class="dash-chart_chart">
+                        <canvas id="server-dash_1"></canvas>
+                      </div>
+                      
+                    </div>
+                    <div class="dash-chart">
+                     <div class="dash-chart_titles">
+                        <span>Memory</span><span class="dash-chart_titles--big">25%</span>
+                      </div>
+                      
+                      <div class="dash-chart_chart">
+                        <canvas id="server-dash_2"></canvas>
+                      </div>
+                      </div>
+                    <div class="dash-chart">
+                     <div class="dash-chart_titles">
+                        <span>Download</span><span class="dash-chart_titles--big">75%</span>
+                      </div>
+                      
+                      <div class="dash-chart_chart">
+                        <canvas id="server-dash_3"></canvas>
+                      </div>
+                    </div>      
+                  </div>
+                  
+                </div>
+                
+                
+                
+              </div>
+          </div>
+
+          <div class="widget widget--double-wide widget-space">
+             <div class="widget__title">
+               <span>Tickets status</span>
+               <span class="widget__title-buttons-group">
+                <span class="widget__title-button widget__title-button--active">Priority</span><span class="widget__title-button">Latest</span>
+               </span>
+             </div>
+              <div class="widget__content">
+                
+                <div class="rows-container">
+                
+                <div class="row">
+                <div class="row__icon"></div>
+                <div class="row__cells-header">
+                  <div class="row__cell--1x">#</div>
+                  <div class="row__cell--1x">Client</div>
+                  <div class="row__cell--3x">Issue description</div>
+                  <div class="row__cell--2x tar">Date</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--error"></div></div>
+                <div class="row__cells row__cells--highlighted">
+                  <div class="row__cell--1x">017892</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">Server shut down - brandwidth exceeded</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--error"></div></div>
+                <div class="row__cells row__cells--highlighted">
+                  <div class="row__cell--1x">017891</div>
+                  <div class="row__cell--1x">IndustryCorp.</div>
+                  <div class="row__cell--3x">Increased CPU load - 90% warning</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--warn"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017433</div>
+                  <div class="row__cell--1x">ACME inc</div>
+                  <div class="row__cell--3x">Website updates -supervision of deployment</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--warn"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017256</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">DNS issues</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--warn"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017221</div>
+                  <div class="row__cell--1x">Bad Co.</div>
+                  <div class="row__cell--3x">Weekly maintenance - database buckups</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017019</div>
+                  <div class="row__cell--1x">ACME inc</div>
+                  <div class="row__cell--3x">Renew SSL certiicate</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017008</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">Minor server uprades</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017008</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">Minor server uprades</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017008</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">Minor server uprades</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+
+                </div>
+                
+              </div>
+          </div>
+           
+          <div class="widget widget--double widget-space">
+             <div class="widget__title">Disk space usage</div>
+             <div class="widget__content widget__content--vertical">
+             
+                <div class="disk-state"><span class="disk-state__name">SSD 01</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 9%;"></div></div><span class="disk-state__value">97%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 02</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 11%;"></div></div><span class="disk-state__value">89%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 03</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 25%;"></div></div><span class="disk-state__value">75%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 04</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 69%;"></div></div><span class="disk-state__value">41%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 05</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 56%;"></div></div><span class="disk-state__value">34%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 06</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 76%;"></div></div><span class="disk-state__value">24%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 07</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 88%;"></div></div><span class="disk-state__value">12%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 08</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 89%;"></div></div><span class="disk-state__value">11%</span></div>
+             
+             </div>
+          </div>
+          
+        </div>
+        
+      </div>
+
+    </div>
+
+
+    <script src="./app.js"></script>
+    <script src="./charts.js"></script>
+    <script src="./navbar.js"></script>
+
+  </body>
+</html>
