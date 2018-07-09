@@ -22,7 +22,7 @@
     <div class="container">
 
       <div class="navbar">
-        <div class="navbar__button"><i class="fas fa-bars"></i></div>
+        <div class="navbar__button" onClick="navbar_expand( this )"><i class="fas fa-bars"></i></div>
         <nav>
           <ul class="navbar__buttons">
             <li class="navbar__button"><i class="fas fa-address-card"></i></li>
@@ -144,7 +144,7 @@
                 
               </div>
           </div>
-          
+
           <div class="widget widget--double-wide widget-space">
              <div class="widget__title">
                <span>Tickets status</span>
@@ -152,9 +152,9 @@
                 <span class="widget__title-button widget__title-button--active">Priority</span><span class="widget__title-button">Latest</span>
                </span>
              </div>
-              <div class="widget__content widget__content--empty__">
+              <div class="widget__content">
                 
-                <div>
+                <div class="rows-container">
                 
                 <div class="row">
                 <div class="row__icon"></div>
@@ -235,12 +235,32 @@
                   <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
                 </div>
                 </div>
+                
+                                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017008</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">Minor server uprades</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
+                
+                                <div class="row">
+                <div class="row__icon"><div class="tickets-table__icon tickets-table--info"></div></div>
+                <div class="row__cells">
+                  <div class="row__cell--1x">017008</div>
+                  <div class="row__cell--1x">Company Ltd.</div>
+                  <div class="row__cell--3x">Minor server uprades</div>
+                  <div class="row__cell--2x tar">07/11/2017 @ 12:37</div>
+                </div>
+                </div>
 
                 </div>
                 
               </div>
           </div>
-          
+           
           <div class="widget widget--double widget-space">
              <div class="widget__title">Disk space usage</div>
              <div class="widget__content widget__content--vertical">
@@ -265,6 +285,7 @@
 
 
     <script src="scripts/charts.js"></script>
+    <script src="scripts/navbar.js"></script>
 
   </body>
 </html>
