@@ -1,2 +1,5 @@
-parcel index.html
-rem parcel build -d release index.html
+@echo off
+
+parcel  --no-cache --no-source-maps index.html
+
+pause

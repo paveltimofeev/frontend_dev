@@ -5,7 +5,7 @@
     
   padding: 15px;
   border-radius: 3px;
-  background-color: #222931;
+  background-color: @color_middle;
   
   /*
   box-sizing: border-box;
@@ -50,13 +50,13 @@
 
 .widget__title-buttons-group {
   
-  border: 1px solid #181d23;
+  border: 1px solid @color_darkest;
   border-radius: 3px;
 }
 
 .widget__title-button {
 
-  background-color: #222931;
+  background-color: @color_middle;
   text-transform: none;
   font-size: 12px;
   cursor: pointer;
@@ -66,18 +66,18 @@
 
 .widget__title-button:hover {
 
-  background-color: #2d343c;
+  background-color: @color_middle-active;
 }
 
 .widget__title-button--active {
 
-  color: #f9cc37;
-  background-color: #2d343c;
+  color: @color_accent;
+  background-color: @color_middle-active;
 }
 
 .widget__title-button--active:hover {
 
-  background-color: #222931;
+  background-color: @color_middle;
 }
 
 .widget__content { 
@@ -113,11 +113,11 @@
 .widget__desc-label { 
 
   font-size: 10px;
-  color: #aaa;
+  color: @color_primarytext;
 }
 
 .widget__desc-value { 
 
   font-size: 20px;
-  color: #fff;
+  color: @color_primarytext;
 }
