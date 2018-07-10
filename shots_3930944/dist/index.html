@@ -8,6 +8,10 @@
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 
+     <!-- MAPBOX -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="/main.8e9d5c0f.css">
     
     <script src="/main.8e9d5c0f.js"></script></head>
@@ -132,7 +136,6 @@
                       </div>
                     </div>      
                   </div>
-                  
                 </div>
                 
                 
@@ -140,6 +143,30 @@
               </div>
           </div>
 
+          <div class="widget widget--double widget-space">
+             <div class="widget__title">Disk space usage</div>
+             <div class="widget__content widget__content--vertical">
+             
+                <div class="disk-state"><span class="disk-state__name">SSD 01</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 9%;"></div></div><span class="disk-state__value">97%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 02</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 11%;"></div></div><span class="disk-state__value">89%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 03</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 25%;"></div></div><span class="disk-state__value">75%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 04</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 69%;"></div></div><span class="disk-state__value">41%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 05</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 56%;"></div></div><span class="disk-state__value">34%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 06</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 76%;"></div></div><span class="disk-state__value">24%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 07</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 88%;"></div></div><span class="disk-state__value">12%</span></div>
+                <div class="disk-state"><span class="disk-state__name">SSD 08</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 89%;"></div></div><span class="disk-state__value">11%</span></div>
+             
+             </div>
+          </div>
+
+          <div class="widget widget--double-wide widget-space">
+             <div class="widget__title">Map</div>
+             <div class="widget__content">
+                <div id="map" class="map-widget-content"></div>
+             </div>
+             
+          </div>
+          
           <div class="widget widget--double-wide widget-space">
              <div class="widget__title">
                <span>Tickets status</span>
@@ -255,23 +282,7 @@
                 
               </div>
           </div>
-           
-          <div class="widget widget--double widget-space">
-             <div class="widget__title">Disk space usage</div>
-             <div class="widget__content widget__content--vertical">
-             
-                <div class="disk-state"><span class="disk-state__name">SSD 01</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 9%;"></div></div><span class="disk-state__value">97%</span></div>
-                <div class="disk-state"><span class="disk-state__name">SSD 02</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 11%;"></div></div><span class="disk-state__value">89%</span></div>
-                <div class="disk-state"><span class="disk-state__name">SSD 03</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 25%;"></div></div><span class="disk-state__value">75%</span></div>
-                <div class="disk-state"><span class="disk-state__name">SSD 04</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 69%;"></div></div><span class="disk-state__value">41%</span></div>
-                <div class="disk-state"><span class="disk-state__name">SSD 05</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 56%;"></div></div><span class="disk-state__value">34%</span></div>
-                <div class="disk-state"><span class="disk-state__name">SSD 06</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 76%;"></div></div><span class="disk-state__value">24%</span></div>
-                <div class="disk-state"><span class="disk-state__name">SSD 07</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 88%;"></div></div><span class="disk-state__value">12%</span></div>
-                <div class="disk-state"><span class="disk-state__name">SSD 08</span><div class="disk-state__progressbar"><div class="disk-state__progressbar-fill" style="width: 89%;"></div></div><span class="disk-state__value">11%</span></div>
-             
-             </div>
-          </div>
-          
+                     
         </div>
         
       </div>
@@ -282,6 +293,8 @@
     <script src="/app.f683df73.js"></script>
     <script src="/charts.7f4400d2.js"></script>
     <script src="/navbar.b2c0330d.js"></script>
+    <script src="/map.apikey.2230f78c.js"></script>
+    <script src="/map.697715e7.js"></script>
 
   </body>
 </html>
