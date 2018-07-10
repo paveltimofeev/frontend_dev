@@ -52,7 +52,7 @@
       data.forEach( function( d , idx){
         
         datasets.push( {
-              label: "Server_" + (idx+1),
+              label: [ 'GPS', 'Accelerometer', 'Speed', 'Compas' ][idx],
               data: d,
               borderColor: color[idx].solid,
               backgroundColor: color[idx].transparent,

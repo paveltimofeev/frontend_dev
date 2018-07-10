@@ -58,8 +58,8 @@
               <div class="widget__title">Heartbeat</div>
               <div class="widget__content widget__content-chart"><canvas id="issues-chart"></canvas></div>
               <div class="widget__desc">
-                <span class="widget__desc-label">Today</span>
-                <span class="widget__desc-value">2</span>
+                <span class="widget__desc-label">Safe mode</span>
+                <span class="widget__desc-value">1H</span>
               </div>
             </div>
             
@@ -67,7 +67,7 @@
               <div class="widget__title">GPS Level</div>
               <div class="widget__content widget__content-chart"><canvas id="checks-chart"></canvas></div>
               <div class="widget__desc">
-                <span class="widget__desc-label">Running</span>
+                <span class="widget__desc-label">Normal</span>
                 <span class="widget__desc-value">6/94</span>
               </div>
             </div>
@@ -80,17 +80,18 @@
               <div class="widget__title">Battery</div>
               <div class="widget__content widget__content-chart"><canvas id="applications-chart"></canvas></div>
               <div class="widget__desc">
-                <span class="widget__desc-label">CPU load</span>
+                <span class="widget__desc-label">
+                <i class="fas fa-exclamation-circle" style="color:rgb(215, 50, 93);"></i>&nbsp;Low&nbsp;level</span>
                 <span class="widget__desc-value">5</span>
               </div>
             </div>
             
             <div class="widget widget--small widget-space">
-              <div class="widget__title">Status</div>
+              <div class="widget__title">Alerts</div>
               <div class="widget__content widget__content-chart"><canvas id="databases-chart"></canvas></div>
               <div class="widget__desc">
-                <span class="widget__desc-label">Disk usage</span>
-                <span class="widget__desc-value">14</span>
+                <span class="widget__desc-label">No alerts today</span>
+                <span class="widget__desc-value">0</span>
               </div>
             </div>
             
@@ -160,7 +161,12 @@
           </div>
 
           <div class="widget widget--double-wide widget-space">
-             <div class="widget__title">Map</div>
+             <div class="widget__title"><span>Map</span>
+             <span class="widget__title-buttons-group">
+                <span class="widget__title-button widget__title-button">Focus the latest point</span>
+                <span class="widget__title-button widget__title-button">Fullscreen</span>
+               </span>
+             </div>
              <div class="widget__content">
                 <div id='map' class="map-widget-content"></div>
              </div>
