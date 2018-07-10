@@ -347,6 +347,9 @@ div {
 .row__cell--3x {
   flex: 3;
 }
+.row__link {
+  color: orange;
+}
 .tickets-table__icon {
   height: 14px;
   width: 4px;
