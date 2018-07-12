@@ -361,3 +361,41 @@ div {
 .tickets-table--info {
   background-color: #35a2fd;
 }
+
+/*MOBILE*/
+@media only screen and (max-width: 600px) {
+    
+    .navbar {
+      flex-direction: row;
+      width: 100%;
+      height: 50px;
+    }
+
+    .navbar__buttons {
+      width: 100%;
+      display:  flex;
+      margin:  0;
+    }
+
+    .navbar__button {
+      width: 50px;
+    }
+     
+    .navbar__button--active {
+      border-left: none;
+      width: 50px;
+      border-top: 2px solid #f9cc37;
+    }
+
+    .content {
+      margin: 0;
+    }
+    
+    .widget--double {
+      width: 100%;
+    }
+    
+    .widget--double-wide {
+      width: 100%;
+    }
+}
