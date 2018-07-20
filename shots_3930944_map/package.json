@@ -1,0 +1,17 @@
+{
+  "name": "shots_3930944",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "less": "^3.5.3"
+  },
+  "dependencies": {
+    "vue": "^2.5.16"
+  }
+}

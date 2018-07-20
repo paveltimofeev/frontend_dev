@@ -3,5 +3,5 @@
 dist
 node_modules
 
-scripts/map.apikey.js
+#scripts/map.apikey.*
 npm-debug.log

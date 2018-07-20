@@ -14,13 +14,13 @@
       var chart = new Chart(ctx, chartOptions ); // TODO: DUBLICATES CHART ON CALL drawChart() ANOTHER ONE TIME
   }
 
-  function createChartOptions( data, color, min, max ) {
+  function createChartOptions( data, color, min, max, type ) {
       
       var labels = [];
       for(var i=0;i<data.length;i++){ labels.push(i); }
       
       return {
-          type: 'line',
+          type: type || 'line',
           data: {
               labels: labels,
               datasets: [ {
@@ -52,7 +52,7 @@
       data.forEach( function( d , idx){
         
         datasets.push( {
-              label: "Server_" + (idx+1),
+              label: [ 'GPS', 'Accelerometer', 'Speed', 'Compas' ][idx],
               data: d,
               borderColor: color[idx].solid,
               backgroundColor: color[idx].transparent,
@@ -170,13 +170,17 @@
   
   function run() {
     
-    drawChart( "issues-chart", createChartOptions( getData(), colors.pink )  );
-    drawChart( "applications-chart", createChartOptions( getData(), colors.blue )  );
-    drawChart( "checks-chart", createChartOptions( getData(), colors.yellow)  );
-    drawChart( "databases-chart", createChartOptions( getData(), colors.green )  );
+    var ds = window.dataSources();
+    
+    ds.getStats( function( err, data ) {
+        
+      drawChart( "issues-chart", createChartOptions( data.heartbeat, colors.pink, 0, 1, 'bar' )  );
+      drawChart( "checks-chart", createChartOptions( data.gps_level, colors.yellow, 0, 100)  );
+      drawChart( "applications-chart", createChartOptions( data.battery_level, colors.blue, 0, 100 )  );
+      drawChart( "databases-chart", createChartOptions( data.alerts, colors.green, 0, 1, 'bar' )  );          
+    });
     
     drawChart( "server-activity-chart", createSrvChartOptions( getServerData(), [colors.green, colors.blue] )  );
-    
     drawChart( "server-dash_1", createDashOptions( 0.5, colors.pink, '% CPU' )  );
     drawChart( "server-dash_2", createDashOptions( 0.25, colors.yellow, '% Memory' )  );
     drawChart( "server-dash_3", createDashOptions( 0.75, colors.blue, '% Download')  );
