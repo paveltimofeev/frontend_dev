@@ -1,0 +1,76 @@
+
+/*DEBUG*/
+div {  border: 1px dashed @color_text_main; }
+/*END DEBUG*/
+
+
+body {
+  margin: 0;
+}
+
+
+/********************/
+
+.page-container {
+  
+  display: flex;
+  height: 100%;
+}
+.left-side {
+  width: 70%;
+}
+.separator {
+  cursor: ew-resize;
+  width: 3px;
+}
+.separator:hover {
+  background-color: @color_accent;
+}
+.right-side {
+  width: 30%;
+  height: 100%;
+}
+
+
+.main-header {
+  height: 10%;
+}
+.main-chart {
+  height: 65%;
+}
+.details-panel {
+  height: 25%;
+}
+.details-panel_title {
+  height: 20%;  
+}
+.widgets-group {
+  display: flex;
+  height: 80%;
+}
+.widget {
+  width: 49%;
+}
+
+
+.user-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 15%;
+}
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 10%;
+}
+.charts-group { 
+  display: flex;
+  flex-wrap: wrap;
+  height: 75%;
+}
+.chart {
+  width: 49%;
+}
+
