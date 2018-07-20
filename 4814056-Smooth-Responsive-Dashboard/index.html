@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Smooth Responsive Dashboard</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Encode+Sans+Condensed|Nunito|PT+Sans|Yantramanav" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    
     <link rel="stylesheet" href="styles/main.less">
   </head>
 
@@ -11,17 +18,17 @@
 
     <div class="page-container">
       <div class="left-side">
-        <div class="main-header">Header menu</div>
+        <div class="main-header">Header menu btc/utc</div>
         <div class="main-chart">Chart</div>
         <div class="details-panel">
-          <div class="details-panel_title">Title</div>
+          <div class="details-panel_title"><strong>See how much</strong> you get</div>
           <div class="widgets-group">
             <div class="widget">Widget1</div>
             <div class="widget">Widget2</div>
           </div>
         </div>
       </div>
-      <div class="separator"></div>
+      <div class="separator" id="separator"></div>
       <div class="right-side">
         <div class="user-menu">User menu</div>
         <div class="user-header">
