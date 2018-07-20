@@ -1,6 +1,6 @@
 
 /*DEBUG*/
-div {  border: 1px dashed @color_text_main; }
+_div {  border: 1px dashed @color_text_main; }
 /*END DEBUG*/
 
 
@@ -18,6 +18,13 @@ body {
 }
 .left-side {
   width: 70%;
+  height: 100%;
+  background: linear-gradient(160deg, @color_bkg_second, @color_bkg_main);
+}
+.right-side {
+  width: 30%;
+  height: 100%;
+  background-color: @color_bkg_second;
 }
 .separator {
   cursor: ew-resize;
@@ -26,13 +33,11 @@ body {
 .separator:hover {
   background-color: @color_accent;
 }
-.right-side {
-  width: 30%;
-  height: 100%;
-}
 
 
 .main-header {
+  display: flex;
+  align-items: flex-end;
   height: 10%;
 }
 .main-chart {
@@ -46,10 +51,14 @@ body {
 }
 .widgets-group {
   display: flex;
+  flex-wrap: wrap;
   height: 80%;
 }
 .widget {
-  width: 49%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -71,6 +80,17 @@ body {
   height: 75%;
 }
 .chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chart--one {
+  width: 100%;
+}
+.chart--two {
   width: 49%;
+}
+.chart--three {
+  width: 32%;
 }
 
