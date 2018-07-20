@@ -42,3 +42,32 @@
    border-left: 2px solid #f9cc37;
    width: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+    
+    .navbar--expand {
+      
+      height: 300px;
+      width: 100%;
+      animation-name: expanding;
+      animation-duration: 4s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+
+    .navbar__buttons {
+      width: 100%;
+      display:  flex;
+      margin:  0;
+    }
+
+    .navbar__button {
+      width: 50px;
+    }
+     
+    .navbar__button--active {
+      border-left: none;
+      width: 50px;
+      border-top: 2px solid #f9cc37;
+    }    
+}

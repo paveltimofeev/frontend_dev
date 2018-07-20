@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Monitoring dashboard</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis|Encode+Sans+Condensed|Nunito|PT+Sans|Yantramanav" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -12,19 +13,19 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     
      <!-- MAPBOX -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css" rel="stylesheet">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
     
-    <link rel="stylesheet" href="/main.8e9d5c0f.css">
+    <link rel="stylesheet" href="styles/main.less">
     
-    <script src="/main.8e9d5c0f.js"></script></head>
+    </head>
 
   <body>
 
     <div id="app" class="container">
 
       <div class="navbar">
-        <div class="navbar__button" onclick="navbar_expand( this )"><i class="fas fa-bars"></i></div>
+        <div class="navbar__button" onClick="navbar_expand( this )"><i class="fas fa-bars"></i></div>
         <nav>
           <ul class="navbar__buttons">
             <li class="navbar__button"><i class="fas fa-address-card"></i></li>
@@ -100,12 +101,12 @@
             
           </div>
           
-          <div class="widget widget--double-wide widget-space">
+          <div class="widget widget--double-wide widget-space desktop-only">
               <div class="widget__title">Sensors Activity</div>
               <div class="widget__content">
 
                 <div class="srv-activity">
-                  
+
                   <div class="srv-activity_chart">
                     <canvas id="server-activity-chart"></canvas>
                   </div>
@@ -140,14 +141,13 @@
                       </div>
                     </div>      
                   </div>
+
                 </div>
-                
-                
-                
+
               </div>
           </div>
 
-          <div class="widget widget--double widget-space">
+          <div class="widget widget--double widget-space desktop-only">
              <div class="widget__title">Tracks records</div>
              <div class="widget__content widget__content--vertical">
              
@@ -171,7 +171,7 @@
                </span>
              </div>
              <div class="widget__content">
-                <div id="map" class="map-widget-content"></div>
+                <div id='map' class="map-widget-content"></div>
              </div>
              
           </div>
@@ -299,12 +299,12 @@
     </div>
 
 
-    <script src="/app.f683df73.js"></script>
-    <script src="/dataSources.89ace9a0.js"></script>
-    <script src="/charts.7f4400d2.js"></script>
-    <script src="/navbar.b2c0330d.js"></script>
-    <script src="/map.apikey.2230f78c.js"></script>
-    <script src="/map.697715e7.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/dataSources.js"></script>
+    <script src="scripts/charts.js"></script>
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/map.apikey.js"></script>
+    <script src="scripts/map.js"></script>
 
   </body>
 </html>
