@@ -1,3 +1,5 @@
-var utils = require('./utils');
+import {utils} from './utils';
 
-console.log( utils.sayHello() );
+document.write( new Date() );
+console.log(utils)
+document.write( utils.sayHello() );

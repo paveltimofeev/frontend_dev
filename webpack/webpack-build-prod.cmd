@@ -1,0 +1,1 @@
+webpack --config webpack.prod.config.js
