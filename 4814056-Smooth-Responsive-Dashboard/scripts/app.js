@@ -1,86 +1,74 @@
 
-
 $(document).ready(function() {
   
-  var left_side = $(".left-side");
-  var right_side = $(".right-side");
-  var edit_state = false;
-  var right_mode = null;
-  
-  function on( e ){
+  function drawChart( elementId, chartOptions, clickOnItemCallback ) {
     
-    if( e ) {
-      e.preventDefault();
+      var canvas = document.getElementById( elementId )
+      var ctx = canvas.getContext( "2d" );
+      var chart = new Chart(ctx, chartOptions ); // TODO: DUBLICATES CHART ON CALL drawChart() ANOTHER ONE TIME
+  }
+  
+  function createChartOptions( data, color, min, max, type ) {
+            
+      // var gradient = ctx.createLinearGradient(0, 0, 200, 0);
+      // gradient.addColorStop(0, 'green');
+      // gradient.addColorStop(1, 'white');
+      
+      return {
+          type: type || 'line',
+          data: {
+              datasets: [ {
+                  data: data,
+                  fill: 'end',
+                  borderColor: 'rgba(255, 93, 0, 1)',
+                  backgroundColor: 'rgba(255, 93, 0, 0.1)',
+                  lineTension: 0,
+                  borderWidth: 1.5,
+                  pointRadius: 0
+              }]
+          },
+          options: {
+              plugins: {
+                  filler: {
+                      propagate: true
+                  }
+              },
+              maintainAspectRatio: false,
+              legend : { display : false },
+              scales: {
+                xAxes: [ { 
+                  display: true,
+                  type: 'time',
+                  distribution: 'series',
+                  bounds: 'ticks',
+                  time: {
+                    unit: 'month'
+                  },
+                  gridLines: { display: false },
+                  ticks: { maxRotation: 0, padding: 25 } 
+                } ],
+                yAxes: [ { 
+                  display: true,
+                  gridLines: { display: false },
+                  ticks: { padding: 50 },
+                  position: 'right'
+                } ]
+              }
+          }
+      };
+  }
+  
+  var dataAdapter = window.DataAdapter();
+  dataAdapter.getCurrencyRate('btc/usd', ( err, data ) => {
+  
+    if( !err ) {
+      drawChart( 'js-mainChart', createChartOptions( data ,null, 7300, 7700));
     }
-    edit_state = true;
-  }
-  
-  function off( e ){
-    
-    if( e ) {
-      e.preventDefault();
+    else {
+      console.log('Error', err );
     }
-    edit_state = false;    
-  }
-  
-  function setMode( mode, hide ) {
-    
-    var ch = $('.charts-group .chart');
-    ch.removeClass('chart--'+right_mode);
-    ch.addClass('chart--'+mode);
-    
-    var ch_h = $('.charts-group .chart__chart');
-    ch_h.removeClass('chart__chart--hide');
-    if( hide ) {
-      ch_h.addClass('chart__chart--hide');
-    }
-    
-    console.log( mode );
-    right_mode = mode + (hide === true ? "--hide": "");
-  }
-  
-  function set( x ){
-    
-      var left = x;
-      var right = window.innerWidth - x;
-      
-      var l_max = window.innerWidth * 0.5;
-      var l_min = window.innerWidth * 0.75;
-      
-      var l_treshold_one = window.innerWidth * 0.6;
-      var l_treshold_two = window.innerWidth * 0.7;
-      
-      if( x > l_max && x < l_min ) {
-        
-        left_side.width( left );
-        right_side.width( right );        
-      
-        if( left < l_treshold_one && right_mode !== "two" )
-        {
-          setMode( "two", false );
-        }
-        else if ( left > l_treshold_one && left < l_treshold_two && right_mode !== "one")
-        {
-          setMode( "one", false );
-        }
-        else if(  left > l_treshold_two && right_mode !== "one--hide")
-        {
-          setMode( "one", true );
-        }
-      }
-  }
-  
-  $( "body" ).mousemove(function( event ) {
-    
-    if( edit_state && event.pageX) {
-      
-      set( event.pageX );
-      // event.originalEvent.stopPropagation();
-    }    
   });
-  
-  $(document).mouseup( off );  
-  $("#separator").mousedown( on ).mouseup( off );  
+    
 });
 
 /*

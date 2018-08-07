@@ -34,6 +34,7 @@ body {
   box-sizing: border-box;
   cursor: ew-resize;
   width: 3px;
+  z-index: 100;
 }
 .separator:hover {
   background-color: @color_accent;
@@ -49,9 +50,9 @@ body {
 }
 .main-chart {
   height: 65%;
-  border: 1px dashed @color_text_second;
+  __border: 1px dashed @color_text_second;
   box-sizing: border-box;
-  padding: 1.5em;
+  padding: 0 5em 5em 0;
 }
 .details-panel {
   height: 25%;
@@ -139,7 +140,7 @@ body {
   border: 1px dashed @color_text_second;
   box-sizing: border-box;
   margin: 10px;
-  border-left: 1px solid @color_text_second;
+  __border-left: 1px solid @color_text_second;
 }
 .chart__chart--hide {
   display: none;
